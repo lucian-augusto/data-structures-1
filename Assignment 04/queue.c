@@ -66,7 +66,12 @@ Queue *dequeue(Queue *q) {
  * ========================================================================== */
 /* Function that returns the first element of the queue (liked list's head)
  * without dequeueing it! */
-int getFirstElement(Queue *q) { return q->data; }
+int getFirstElement(Queue *q) {
+  if (!isEmptyQueue(q)) {
+    return q->data;
+  }
+  return -INT_MAX;
+}
 
 /* Function that returns the length of a queue. */
 int getQueueLength(Queue *q) {
